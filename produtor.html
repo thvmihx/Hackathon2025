@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Define o idioma da página como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+    <title>Painel do Produtor - Prudente Conecta</title> <!-- Título da aba do navegador -->
+
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho principal da página -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logotipo com link para a página principal -->
+            <a href="index.html" class="logo">Prudente Conecta</a>
+
+            <!-- Botão simples no canto direito do cabeçalho -->
+            <div class="header-right-simple">
+                <a href="index.html" class="btn btn-secondary">Voltar à Loja</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Título da página -->
+    <div class="page-header">
+        <h2>Painel do Produtor</h2>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main class="page-container container">
+
+        <!-- Seção para o produtor se identificar -->
+        <section class="card">
+            <h3>1. Identifique-se</h3>
+            <div class="form-group">
+                <label for="producer-select">Selecione o seu cadastro:</label>
+                <!-- Menu suspenso que será preenchido via JavaScript -->
+                <select id="producer-select">
+                    <option value="">Carregando produtores...</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Seção do painel que só aparece após selecionar um produtor -->
+        <section id="dashboard-content" style="display:none;">
+            <!-- Lista dos produtos cadastrados pelo produtor -->
+            <div class="card">
+                <h3>Meus Produtos Atuais</h3>
+                <div id="my-products-list" class="my-products-list">
+                    <!-- Os produtos do produtor serão inseridos aqui dinamicamente -->
+                </div>
+            </div>
+
+            <!-- Formulário para adicionar novos produtos -->
+            <div class="card">
+                <h3>2. Adicionar Novo Produto</h3>
+                <form id="add-product-form">
+                    <!-- Campo: nome do produto -->
+                    <div class="form-group">
+                        <label for="product-name">Nome do Produto</label>
+                        <input type="text" id="product-name" placeholder="Ex: Alface Crespa Orgânica" required>
+                    </div>
+                    
+                    <!-- Campo: preço do produto -->
+                    <div class="form-group">
+                        <label for="product-price">Preço (use ponto para centavos)</label>
+                        <input type="number" step="0.01" id="product-price" placeholder="Ex: 3.50" required>
+                    </div>
+                    
+                    <!-- Campo: unidade de venda (Kg, unidade, maço etc.) -->
+                    <div class="form-group">
+                        <label for="product-unit">Unidade de Venda</label>
+                        <input type="text" id="product-unit" placeholder="Ex: Unidade, Kg, Dúzia, Maço" required>
+                    </div>
+
+                    <!-- Botão para submeter o formulário -->
+                    <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Inclusão da biblioteca do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Inclusão do JavaScript específico do painel do produtor -->
+    <script src="produtor.js"></script>
+</body>
+</html>

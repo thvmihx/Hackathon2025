@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração de codificação de caracteres -->
+    <meta charset="UTF-8">
+    
+    <!-- Responsividade: adapta layout à largura da tela do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página mostrado na aba do navegador -->
+    <title>Prudente Conecta - Do campo para a sua mesa</title>
+
+    <!-- Link para o arquivo CSS externo com os estilos da página -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Pré-conexão para melhorar o carregamento das fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonte "Poppins" importada do Google Fonts com pesos 400, 600 e 700 -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Inclusão do SDK do Supabase (banco de dados e autenticação em nuvem) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Início do cabeçalho principal do site -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo do site -->
+            <h1 class="logo">Prudente Conecta</h1>
+            
+            <!-- Navegação principal com âncoras para seções da página -->
+            <nav class="main-nav">
+                <a href="#solucao">Como Funciona</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#impacto">Nosso Impacto</a>
+            </nav>
+            
+            <!-- Botões de acesso para usuários -->
+            <div class="header-buttons">
+                <a href="produtor.html" class="btn btn-secondary">Sou Produtor</a>
+                <a href="#produtos" class="btn btn-primary">Fazer Pedido</a>
+            </div>
+            
+            <!-- Ícones do carrinho e configurações -->
+            <div class="header-icons">
+                <a href="carrinho.html" class="cart-link">🛒
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção de destaque/hero (parte inicial com chamada principal) -->
+    <!--Container Banner-->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-text">
+                <h2>Do campo da nossa gente para a mesa da sua família.</h2>
+                <p>Conectamos você a alimentos frescos e produtores locais de Presidente Prudente.</p>
+                <a href="#produtos" class="btn btn-primary btn-large">Ver Produtos Fresquinhos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção que explica como o sistema funciona em 3 passos -->
+    <!--Container Nossa solução-->
+    <section id="solucao" class="section">
+        <div class="container">
+            <h3 class="section-title">Nossa solução: é simples e poderosa</h3>
+            <div class="steps-container">
+                <!-- Passo 1: Produtor cadastra -->
+                <div class="step-card">
+                    <div class="step-icon">🌱</div>
+                    <h4>1. Produtor Anuncia</h4>
+                    <p>Pelo celular, o produtor cadastra o que colheu de fresco no dia. Sem burocracia.</p>
+                </div>
+                <!-- Passo 2: Cliente escolhe -->
+                <div class="step-card">
+                    <div class="step-icon">🛒</div>
+                    <h4>2. Você Escolhe</h4>
+                    <p>Você acessa nossa plataforma, escolhe os melhores produtos locais e paga online.</p>
+                </div>
+                <!-- Passo 3: Entrega ou retirada -->
+                <div class="step-card">
+                    <div class="step-icon">🚲</div>
+                    <h4>3. Nós Conectamos</h4>
+                    <p>Retire sua cesta em um Ponto de Coleta ou receba na sua porta por um Jovem Entregador Verde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de produtos disponíveis -->
+    <!--Container Produtos-->
+    <section id="produtos" class="section section-gray">
+        <div class="container">
+            <h3 class="section-title">Nossos produtos em destaque</h3>
+            <p class="section-subtitle">Frescos, locais e cheios de sabor. Conheça quem produz!</p>
+            
+            <!-- Lista de produtos carregada dinamicamente via JavaScript -->
+            <div id="product-list" class="product-grid">
+                <p>Carregando produtos...</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de impacto social com os ODS -->
+    <!--Container Nosso impacto-->
+    <section id="impacto" class="section">
+        <div class="container">
+            <h3 class="section-title">Nosso impacto vai além da comida</h3>
+            <p class="section-subtitle">A cada compra, você ajuda a construir uma cidade mais forte e justa.</p>
+            
+            <!-- Exibição dos impactos alinhados aos Objetivos de Desenvolvimento Sustentável (ODS) -->
+            <div class="impact-grid">
+                <div class="impact-card"><span>ODS 1</span> Gera Renda</div>
+                <div class="impact-card"><span>ODS 2</span> Combate a Fome</div>
+                <div class="impact-card"><span>ODS 8</span> Cria Trabalho</div>
+                <div class="impact-card"><span>ODS 10</span> Reduz Desigualdade</div>
+                <div class="impact-card"><span>ODS 12</span> Evita Desperdício</div>
+                <div class="impact-card"><span>ODS 17</span> Promove Parcerias</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chamada para ação final: incentivar o usuário a participar -->
+    <!--Container de chamada-->
+    <section id="cta" class="section section-cta">
+        <div class="container">
+            <h3>Junte-se ao movimento!</h3>
+            <p>Faça parte da mudança em Presidente Prudente. Compre local, fortaleça a comunidade.</p>
+            <a href="#produtos" class="btn btn-light btn-large">Quero receber minha cesta</a>
+        </div>
+    </section>
+
+    <!-- Rodapé da página com créditos e organizações envolvidas -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-info">
+                <h4>Prudente Conecta</h4>
+                <p>Projeto desenvolvido para a 4ª Edição do <br><strong>Hackathon Impacto Social 2025</strong>.</p>
+            </div>
+            <div class="footer-logos">
+                <p>Organização:</p>
+                <span>GREEN SAUCE VALLEY</span>
+                <span>OESTE VALLEY</span>
+                <span>CALIFORNIA VALLEY</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inclusão do script JavaScript que lida com funcionalidades da página -->
+    <script src="main.js"></script>
+
+</body>
+</html>
