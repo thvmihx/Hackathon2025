@@ -8,161 +8,124 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AgroConecta">
+    <link rel="apple-touch-icon" href="/icones/icon-192x192.png">
+    <meta name="theme-color" content="#2a9d8f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <header class="main-header">
     <div class="container">
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
         <h1 class="logo">AgroConecta</h1>
-        
         <nav class="main-nav">
             <a href="#solucao">Como Funciona</a>
             <a href="#produtos">Produtos</a>
             <a href="#impacto">Nosso Impacto</a>
         </nav>
-        
         <div class="header-actions">
-
             <div class="header-buttons">
-                <a href="producer.html" id="producer-btn" class="btn btn-secondary">Sou Produtor</a>
-                <a href="#produtos" class="btn btn-primary">Fazer Pedido</a>
+                <a href="produtor.html" id="producer-btn" class="btn btn-secondary">Sou Produtor</a>
+                <a href="#produtos" class="btn btn-primary btn-mobile-cta">Fazer Pedido</a>
             </div>
-            
             <div class="header-icons">
-                <a href="shopping-cart.html" class="cart-link">🛒
-                    <span id="cart-count" class="cart-count">0</span>
+                <a href="carrinho.html" class="cart-link" aria-label="Carrinho de compras">
+                    🛒
+                    <span id="cart-count" class="cart-count" aria-live="polite">0</span>
                 </a>
+                <div id="user-session-controls" class="user-session-controls">
+                    <a href="login.html" id="user-auth-link" class="user-link" aria-label="Área do usuário">
+                        <span class="icon">👤</span>
+                    </a>
+                </div>
             </div>
-
-            <div id="user-session-controls" class="user-session-controls">
-                <a href="login.html" id="user-auth-link" class="user-link">
-                    <span class="icon">👤</span>
-                    <span class="text">Entrar</span>
-                </a>
-            </div>
-
         </div>
-
     </div>
-
 </header>
 
     <section id="hero" class="hero-section">
-
         <div class="container">
-
             <div class="hero-text">
                 <h2>Do campo da nossa gente para a mesa da sua família.</h2>
                 <p>Conectamos você a alimentos frescos e produtores locais de Presidente Prudente.</p>
-                <a href="#produtos" class="btn btn-primary btn-large">Ver Produtos Fresquinhos</a>
             </div>
-
         </div>
-
     </section>
 
     <section id="solucao" class="section">
-
         <div class="container">
-
-            <h3 class="section-title">Nossa solução: é simples e poderosa</h3>
-
+            <h3 id="solucao-titulo" class="section-title">Nossa solução: é simples e poderosa</h3>
             <div class="steps-container">
-
                 <div class="step-card">
                     <div class="step-icon">🌱</div>
                     <h4>1. Produtor Anuncia</h4>
                     <p>Pelo celular, o produtor cadastra o produto que colheu fresco no dia.</p>
                 </div>
-
                 <div class="step-card">
                     <div class="step-icon">🛒</div>
                     <h4>2. Você Escolhe</h4>
                     <p>Você acessa nossa plataforma, e escolhe os melhores produtos disponibilizados pelos produtores.</p>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-icon">🚲</div>
-                    <h4>3. Conexão Acessível</h4>
-                    <p>Facilidade para se comunicar com o produtor, e receber sua feira em casa.</p>
-                </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <section id="produtos" class="section section-gray">
-
+    <nav id="produtos" aria-labelledby="produtos-titulo" class="section section-gray product-slider-container">
         <div class="container">
-
-            <h3 class="section-title">Nossos produtos em destaque</h3>
+            <h3 id="produtos-titulo" class="section-title">Nossos produtos em destaque</h3>
             <p class="section-subtitle">Frescos, locais e cheios de sabor. Conheça quem produz!</p>
-            
-
-            <div id="product-list" class="product-grid">
-                <p>Carregando produtos...</p>
+            <div class="swiper product-slider">
+                <div id="product-list" class="swiper-wrapper">
+                    <div class="swiper-slide"><p>Carregando produtos...</p></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
-
         </div>
-
-    </section>
+    </nav>
 
     <section id="impacto" class="section">
-
         <div class="container">
-
-            <h3 class="section-title">Nosso impacto vai além da comida</h3>
+            <h3 id="impacto-titulo" class="section-title">Nosso impacto vai além da comida</h3>
             <p class="section-subtitle">A cada compra, você ajuda a construir uma cidade mais forte e justa.</p>
-
             <div class="impact-grid">
                 <div class="impact-card"><span>ODS 9</span> Indústria, Inovação e Infraestrutura</div>
             </div>
-
         </div>
-
     </section>
 
     <section id="cta" class="section section-cta">
-
         <div class="container">
-
             <h3>Junte-se ao movimento!</h3>
             <p>Faça parte da mudança em Presidente Prudente. Compre local, fortaleça a comunidade.</p>
             <a href="#produtos" class="btn btn-light btn-large">Quero receber minha cesta</a>
-
         </div>
-
     </section>
 
     <footer class="main-footer">
-
         <div class="container">
-
             <div class="footer-info">
-
                 <h4>AgroConecta</h4>
                 <p>Projeto desenvolvido para a 4ª Edição do <br><strong>Hackathon Impacto Social 2025</strong>.</p>
-
             </div>
-
             <div class="footer-logos">
-
                 <p>Organização:</p>
                 <span>GREEN SAUCE VALLEY</span>
                 <span>OESTE VALLEY</span>
                 <span>CALIFORNIA VALLEY</span>
             </div>
-
         </div>
-
     </footer>
-
+ 
     <div id="toast-notification" class="toast"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
 
 </body>

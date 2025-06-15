@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AgroConecta">
+<link rel="apple-touch-icon" href="/icones/icon-192x192.png">
+<meta name="theme-color" content="#2a9d8f">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - AgroConecta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">AgroConecta</a>
+            <div class="header-right-simple">
+                <a href="#" id="logout-button" class="btn btn-secondary">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2 id="welcome-message">Carregando...</h2>
+    </div>
+
+    <main class="page-container container">
+        <div class="card">
+            <h3>Meus Dados</h3>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>WhatsApp:</strong> <span id="user-whatsapp"></span></p>
+        </div>
+
+        <div class="card">
+            <h3>Histórico de Pedidos</h3>
+            <div id="order-history">
+                <p>Em breve, seus pedidos aparecerão aqui.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="conta.js"></script>
+</body>
+</html>

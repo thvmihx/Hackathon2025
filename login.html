@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AgroConecta">
+<link rel="apple-touch-icon" href="/icones/icon-192x192.png"> 
+<meta name="theme-color" content="#2a9d8f">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar - AgroConecta</title>
@@ -10,71 +16,50 @@
 <body>
 
     <header class="main-header">
-
         <div class="container">
-
             <a href="index.html" class="logo">AgroConecta</a>
-
             <div class="header-right-simple">
                 <a href="index.html" class="btn btn-secondary">Voltar à Loja</a>
             </div>
-
         </div>
-
     </header>
 
     <main class="page-container container auth-container">
-
         <div class="card auth-card">
-
             <h2>Acesse sua conta</h2>
             <p>Bem-vindo(a) de volta! Escolha seu perfil e use seu e-mail e senha para entrar.</p>
-
             <form id="login-form">
-
                 <div id="error-message" class="error-message" style="display:none;"></div>
-
                 <div class="role-selection">
-
                     <label>
                         <input type="radio" name="user-role" value="comprador" checked>
                         <span>Sou Comprador</span>
                     </label>
-
                     <label>
                         <input type="radio" name="user-role" value="produtor">
                         <span>Sou Produtor</span>
                     </label>
-                    
                 </div>
 
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" required>
                 </div>
-
                 <div class="form-group">
                     <label for="password">Senha</label>
                     <input type="password" id="password" required>
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-large" style="width:100%">Entrar</button>
-
             </form>
-
             <div class="auth-switch">
-                <p>Ainda não tem uma conta de comprador? <a href="register.html">Cadastre-se aqui</a></p>
-                <p>Quer vender seus produtos? <a href="producer-registration.html">Seja um produtor parceiro</a></p>
-            </div>
-
+    <p>Ainda não tem uma conta de comprador? <a href="cadastro.html">Cadastre-se aqui</a></p>
+    <p>Quer vender seus produtos? <a href="cadastro-produtor.html">Seja um produtor parceiro</a></p>
+</div>
         </div>
-        
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <script src="login.js"></script>
-
 </body>
-
 </html>

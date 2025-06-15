@@ -1,4 +1,4 @@
-const SUPABASE_URL = 'https://quucktxeoydvitsbtofn.supabase.co';
+const SUPABASE_URL = 'https://quucktxeoydvitsbtofn.supabase.co'; 
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1dWNrdHhlb3lkdml0c2J0b2ZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyNTYwMjMsImV4cCI6MjA2NDgzMjAyM30.uphkOzvr7VdbKsy9MYHs4FRpvz5W3J1-4eEHmFDeU_U';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -41,7 +41,7 @@ loginForm.addEventListener('submit', async (event) => {
             .single();
 
         if (profile) {
-            window.location.href = 'account.html';
+            window.location.href = 'conta.html';
         } else {
             errorMessageDiv.textContent = 'Este usuário não possui um perfil de comprador.';
             errorMessageDiv.style.display = 'block';
@@ -57,7 +57,7 @@ loginForm.addEventListener('submit', async (event) => {
             .single();
 
         if (profile) {
-            window.location.href = 'producer.html';
+            window.location.href = 'produtor.html';
         } else {
             errorMessageDiv.textContent = 'Este usuário não possui um perfil de produtor.';
             errorMessageDiv.style.display = 'block';
