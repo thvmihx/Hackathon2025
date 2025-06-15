@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Produtor - Prudente Conecta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">Prudente Conecta</a>
+
+            <div class="header-right-simple">
+                <a href="index.html" class="btn btn-secondary">Voltar à Loja</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="page-header">
+        <h2>Painel do Produtor</h2>
+    </div>
+
+    <main class="page-container container">
+
+        <section class="card">
+
+            <h3>1. Identifique-se</h3>
+            <div class="form-group">
+
+                <label for="producer-select">Selecione o seu cadastro:</label>
+
+                <select id="producer-select">
+                    <option value="">Carregando produtores...</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <section id="dashboard-content" style="display:none;">
+
+            <div class="card">
+                <h3>Meus Produtos Atuais</h3>
+                <div id="my-products-list" class="my-products-list">
+                </div>
+            </div>
+
+            <div class="card">
+
+                <h3>2. Adicionar Novo Produto</h3>
+
+                <form id="add-product-form">
+
+                    <div class="form-group">
+                        <label for="product-name">Nome do Produto</label>
+                        <input type="text" id="product-name" placeholder="Ex: Alface Crespa Orgânica" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-price">Preço (use ponto para centavos)</label>
+                        <input type="number" step="0.01" id="product-price" placeholder="Ex: 3.50" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-unit">Unidade de Venda</label>
+                        <input type="text" id="product-unit" placeholder="Ex: Unidade, Kg, Dúzia, Maço" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+
+                </form>
+
+            </div>
+
+        </section>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="producer.js"></script>
+</body>
+</html>

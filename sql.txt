@@ -1,0 +1,73 @@
+-- Tabela para guardar a informação principal de cada pedido
+CREATE TABLE pedidos (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  nome_cliente TEXT NOT NULL,
+  contato_cliente TEXT NOT NULL,
+  valor_total NUMERIC(10, 2) NOT NULL,
+  status TEXT DEFAULT 'Recebido'
+);
+
+-- Tabela para guardar os itens específicos de cada pedido
+CREATE TABLE pedidos_itens (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  pedido_id UUID NOT NULL REFERENCES pedidos(id) ON DELETE CASCADE,
+  produto_id UUID NOT NULL REFERENCES produtos(id) ON DELETE RESTRICT,
+  quantidade INTEGER NOT NULL,
+  preco_unitario NUMERIC(10, 2) NOT NULL
+);
+
+CREATE POLICY "Permitir leitura pública" ON public.pedidos FOR SELECT USING (true);
+CREATE POLICY "Permitir inserção pública" ON public.pedidos FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Permitir leitura pública" ON public.pedidos_itens FOR SELECT USING (true);
+CREATE POLICY "Permitir inserção pública" ON public.pedidos_itens FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Permitir inserção pública em produtos" ON public.produtos FOR INSERT WITH CHECK (true);
+
+-- Tabela para os Pequenos Produtores
+CREATE TABLE produtores (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  nome TEXT NOT NULL,
+  historia TEXT,
+  foto_url TEXT,
+  cidade_regiao TEXT DEFAULT 'Presidente Prudente e Região',
+  whatsapp TEXT
+);
+
+-- Tabela para os Produtos
+CREATE TABLE produtos (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  nome TEXT NOT NULL,
+  descricao TEXT,
+  preco NUMERIC(10, 2) NOT NULL,
+  unidade TEXT NOT NULL,
+  imagem_url TEXT,
+  disponivel BOOLEAN DEFAULT true,
+  produtor_id UUID NOT NULL REFERENCES produtores(id) ON DELETE CASCADE
+);
+
+-- Tabela para os Pontos de Coleta
+CREATE TABLE pontos_coleta (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    nome TEXT NOT NULL,
+    endereco TEXT NOT NULL,
+    horario_funcionamento TEXT
+);
+
+INSERT INTO produtores (nome, historia, whatsapp) VALUES
+('Família Silva Orgânicos', 'Há 3 gerações cultivando com amor na zona rural de Prudente. Nossa especialidade são folhosas e tomates, tudo sem agrotóxicos.', '18999991111'),
+('Sítio Pôr do Sol', 'Somos um casal que trocou a cidade pelo campo para produzir queijos e doces artesanais. Tudo feito com ingredientes frescos daqui mesmo!', '18999992222');
+
+INSERT INTO pontos_coleta (nome, endereco, horario_funcionamento) VALUES
+('Centro Comunitário Jd. Morumbi', 'Rua das Flores, 123 - Jd. Morumbi', 'Sábados, das 9h às 12h'),
+('INOVA Prudente', 'Rod. Comendador Alberto Bonfiglioli, 2700', 'Sextas, das 16h às 18h');
+
+INSERT INTO produtos (produtor_id, nome, preco, unidade) VALUES
+((SELECT id FROM produtores WHERE nome = 'Família Silva Orgânicos'), 'Alface Crespa Orgânica', 3.50, 'Unidade'),
+((SELECT id FROM produtores WHERE nome = 'Família Silva Orgânicos'), 'Tomate Italiano Orgânico', 8.90, 'Kg'),
+((SELECT id FROM produtores WHERE nome = 'Sítio Pôr do Sol'), 'Queijo Frescal Artesanal', 25.00, 'Peça 500g'),
+((SELECT id FROM produtores WHERE nome = 'Sítio Pôr do Sol'), 'Doce de Leite Cremoso', 15.00, 'Pote 400g');
