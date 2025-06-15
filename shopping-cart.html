@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Carrinho - Prudente Conecta</title>
+    <title>Meu Carrinho - AgroConecta</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
     <header class="main-header">
 
         <div class="container">
 
-            <a href="index.html" class="logo">Prudente Conecta</a>
+            <a href="index.html" class="logo">AgroConecta</a>
 
             <div class="header-right-simple">
+
                 <a href="index.html" class="btn btn-secondary">Continuar Comprando</a>
             </div>
 
@@ -27,12 +28,16 @@
         <h2>Meu Carrinho de Compras</h2>
     </div>
 
-    <main class="page-container container">
+    <main class="page-container container cart-page">
 
-        <div class="card">
+        <div class="cart-items-container">
 
-            <div id="cart-items-list">
-                <p>Carregando seu carrinho...</p>
+            <div class="card">
+
+                <div id="cart-items-list">
+                    <p>Carregando seu carrinho...</p>
+                </div>
+
             </div>
 
         </div>
@@ -40,13 +45,9 @@
         <div id="checkout-section" style="display: none;">
 
             <div class="card">
+
+                <h3>Resumo do Pedido</h3>
                 <div id="cart-total" class="cart-total"></div>
-            </div>
-
-            <div class="card">
-
-                <h3>Finalizar Pedido</h3>
-                <p>Preencha seus dados para concluirmos a compra. Entraremos em contato pelo WhatsApp para combinar a entrega/retirada.</p>
 
                 <form id="checkout-form">
 
@@ -74,7 +75,13 @@
             <h3>Seu carrinho está vazio.</h3>
             <p>Adicione produtos frescos da nossa loja para continuar.</p>
             <a href="index.html" class="btn btn-primary">Voltar para a Loja</a>
+        </div>
 
+        <div id="order-success-message" class="card" style="display:none;">
+            <span>🚚</span>
+            <h3>Pedido Confirmado!</h3>
+            <p>Seu pedido <strong id="success-order-id"></strong> está a caminho. Entraremos em contato em breve pelo WhatsApp para combinar os detalhes da entrega.</p>
+            <a href="index.html" class="btn btn-primary">Voltar para a Loja</a>
         </div>
 
     </main>
@@ -82,7 +89,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script src="shopping-cart.js"></script>
-    
-</body>
 
+</body>
 </html>

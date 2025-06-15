@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie sua Conta - AgroConecta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+
+        <div class="container">
+            <a href="index.html" class="logo">AgroConecta</a>
+        </div>
+
+    </header>
+
+    <main class="page-container container auth-container">
+
+        <div class="card auth-card">
+
+            <h2>Crie sua conta de comprador</h2>
+            <p>É rápido e fácil. Fortaleça nossa comunidade!</p>
+
+            <form id="signup-form">
+
+                <div id="error-message" class="error-message" style="display:none;"></div>
+                
+                <div class="form-group">
+                    <label for="fullname">Nome Completo</label>
+                    <input type="text" id="fullname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" placeholder="(XX) 99999-9999" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha (mínimo 6 caracteres)</label>
+                    <input type="password" id="password" minlength="6" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-large" style="width:100%">Criar Conta</button>
+
+            </form>
+
+            <div class="auth-switch">
+                <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="register.js"></script>
+
+</body>
+
+</html>
